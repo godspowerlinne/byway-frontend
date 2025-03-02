@@ -1,4 +1,5 @@
-import React, { createContext, useState } from 'react'
+import { XIcon } from 'lucide-react';
+import React, { createContext, useContext, useState } from 'react'
 
 // Implement a global context for accessing core functionalities from any component
 const ModalContext = createContext({
