@@ -33,7 +33,7 @@ const HomeHero = () => {
 
     const HeroContent = (heroImg) => {
         return (
-            <div className="w-full flex flex-col lg:flex-row justify-between gap-8 items-center gap-16">
+            <div className="w-full flex flex-col lg:flex-row justify-between gap-8 items-center">
                 <HeroText />
                 <img src={heroImg.HeroImg} alt="Mentor Holding Class Notes" className="max-w-[500px]" />
             </div>
