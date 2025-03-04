@@ -1,9 +1,9 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 const AuthContext = createContext();
 
 const url = import.meta.env.VITE_API_BASE_URL; // The base URL for the API endpoint
-const Auth = () => {
+const Auth = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -111,7 +111,7 @@ const Auth = () => {
     
     return (
         <AuthContext.Provider value={values}>
-            {!loading &&children}
+            {!loading && children}
         </AuthContext.Provider>
     );
 }

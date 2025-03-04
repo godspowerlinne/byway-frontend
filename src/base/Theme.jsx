@@ -16,11 +16,12 @@ const Theme = ({ children }) => {
             localStorage.setItem("theme", newTheme ? "dark" : "light");
             return newTheme;
         });
-        // step 3 apply the theme to html tag
-        useEffect(()=>{
-            document.documentElement.className = isDarkMode ? "dark" : "light";
-        }, [isDarkMode]);
     }
+    
+    // step 3 apply the theme to html tag
+    useEffect(()=>{
+        document.documentElement.className = isDarkMode ? "dark" : "light";
+    }, [isDarkMode]);
     return (
         <ThemeContext.Provider value={{isDarkMode, toggleTheme }}>
             {children}
