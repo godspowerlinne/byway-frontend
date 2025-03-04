@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 // Search Bar for larger screens 
 export const SearchBar = () => {
     return (
-        <div className='lg:flex items-center md:max-w-[400px] xl:max-w-[600px] min-h-[40px] w-full hidden justify-between relative rounded-lg border border-[#797b7e] dark:border-[#c19bff] dark:text-white overflow-hidden'>
+        <div className='lg:flex items-center md:max-w-[400px] xl:max-w-[520px] max-h-[40px] w-full hidden justify-between relative rounded-lg border border-[#797b7e] dark:border-[#c19bff] dark:text-white overflow-hidden'>
             <input className='w-full pl-14 px-6 py-3 text-sm placeholder:text-[#334155] dark:placeholder:text-[#ffffff] bg-transparent dark:bg-[#2c3131] font-[500] focus:outline-none' type='text' placeholder='Search for courses...' />
             <Search className='absolute left-4 top-0 translate-y-[45%] text-gray-600 dark:text-[#c19bff] cursor-pointer transition-all duration-300 hover:translate-y-[40%] hover:scale-105' />
         </div>
