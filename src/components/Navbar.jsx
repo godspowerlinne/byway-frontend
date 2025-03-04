@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthUserAccessHub, GuestUserAccessHub, SearchBar, SearchBar2 } from '../utilities/Elements';
 import { useTheme } from '../base/Theme'
 import { useAuth } from '../base/Auth';
+import Byway from '/byway.svg'
 
 const Navbar = () => {
     // Use Theme Context 
@@ -25,7 +26,7 @@ const Navbar = () => {
             <nav className='max-w-screen-2xl w-full mx-auto flex items-center justify-between px-4 md:px-8 xl:px-14 py-3 font-[500]'>
                 {/* Logo */}
                 <Link to="/" className='flex items-center gap-2 z-[100]'>
-                    <img className='h-10 w-auto object-cover' src='/public/byway.svg' alt='Logo' />
+                    <img className='h-10 w-auto object-cover' src={Byway} alt='Logo' />
                     <span className='text-[16px] dark:text-white'>Byway</span>
                 </Link>
                 <Link to="/category" className='hidden lg:flex dark:text-[#c19bff] hover:text-[#64748B] dark:hover:text-white transition-all md:text-[14px] lg:text-[16px]'>Categories</Link>

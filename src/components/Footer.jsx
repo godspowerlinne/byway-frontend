@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFacebook, FaGithub, FaInstagram } from 'react-icons/fa'
 import { FaGoogle, FaXTwitter } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
-
+import Byway from '/byway.svg'
 const Footer = () => {
 	return (
 		<footer className=' bg-[#1E293B] dark:bg-[#410B65] text-[#CBD5E1]'>
@@ -10,7 +10,7 @@ const Footer = () => {
 				<div className='flex flex-col gap-4 max-w-[400px]'>
 					{/* Logo */}
 					<Link to="/" className='flex items-center gap-2'>
-						<img className='h-10 w-auto object-cover' src='/public/byway.svg' alt='Logo' />
+						<img className='h-10 w-auto object-cover' src={Byway} alt='Logo' />
 						<span className='text-[16px] dark:text-white'>Byway</span>
 					</Link>
 					<p>Empowering learners through accessible and engaging online education. <br />Byway is a leading online learning platform dedicated to providing high-quality, flexible, and affordable educational experiences. </p>
