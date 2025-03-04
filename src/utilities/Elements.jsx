@@ -89,10 +89,24 @@ export const GuestUserAccessHub = () => {
 } 
 
 
+// Reusuable button component
 export const Button = (btn) =>{
     return(
         <button className={`${btn.BtnStyle} px-6 py-[10px] rounded-md text-sm font-medium transition-all duration-300`} onClick={btn.onClick}>
             {btn.BtnText}
         </button>
+    )
+}
+
+// Reusable input component
+export const Input = (input) => {
+    return (
+        <input
+            className={`block w-full px-6 py-[10px] border border-[#797b7e] dark:border-[#c19bff] rounded-md text-sm transition-all duration-300 ${input.error ? 'border-red-500' : ''}`}
+            type={input.type}
+            placeholder={input.placeholder}
+            value={input.value}
+            onChange={input.onChange}
+        />
     )
 }
