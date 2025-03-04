@@ -87,3 +87,12 @@ export const GuestUserAccessHub = () => {
         </div>
     )
 } 
+
+
+export const Button = (btn) =>{
+    return(
+        <button className={`${btn.BtnStyle} px-6 py-[10px] rounded-md text-sm font-medium transition-all duration-300`} onClick={btn.onClick}>
+            {btn.BtnText}
+        </button>
+    )
+}
