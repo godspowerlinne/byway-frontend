@@ -51,9 +51,9 @@ const Auth = ({children}) => {
     }
 
     // Login Logic
-    const login = async (userData) => {
+    const login = async (credentials) => {   // Changed userData to credentials for clarity
         try {
-            const { email, username, password } = credentials;
+            const { email, username, password } = credentials; // Destructure credentials
 
             // Check if inputs are empty or not
             if ((!email && !username) ||!password) {
@@ -106,7 +106,7 @@ const Auth = ({children}) => {
         login,
         logout,
         clearError,
-        isAuthenticated: !user,
+        isAuthenticated: !!user,  // Corrected isAuthenticated logic
     };
     
     return (
