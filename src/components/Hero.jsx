@@ -40,7 +40,7 @@ const HomeHero = () => {
     }
 
     return (
-        <div className="px-4 md:px-8 xl:px-14 py-8 font-[500] max-w-screen-2xl w-full mx-auto  bg-white dark:bg-[#020617]">
+        <div className="px-4 pt-20 md:px-8 xl:px-14 py-8 font-[500] max-w-screen-2xl w-full mx-auto  bg-white dark:bg-[#020617]">
             <Swiper
                 modules={[Autoplay]}
                 spaceBetween={50}

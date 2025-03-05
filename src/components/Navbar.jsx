@@ -19,10 +19,15 @@ const Navbar = () => {
     // Function to toggle menu open and close
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
+        if (!isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
     }
 
     return (
-        <header className='min-h-16 bg-white dark:bg-[#020617] text-[#334155] dark:text-white'>
+        <header className='min-h-16 bg-white dark:bg-[#020617] text-[#334155] fixed  dark:text-white w-full z-[1000] border-b border-b-blue-600/30'>
             <nav className='max-w-screen-2xl w-full mx-auto flex items-center justify-between px-4 md:px-8 xl:px-14 py-3 font-[500]'>
                 {/* Logo */}
                 <Link to="/" className='flex items-center gap-2 z-[100]'>
@@ -49,11 +54,13 @@ const Navbar = () => {
             {/* Mobile nav */}
             {isMenuOpen && (
                 <div className='fixed inset-0 z-50 lg:hidden'>
-                    <div className='absolute inset-0 bg-black/30 backdrop-blur-[2px] transition-opacity duration-300' onClick={handleMenuToggle} ></div>
+                    <div className='absolute inset-0 bg-black/30 dark:bg-[#c19bff]/30 backdrop-blur-[2px] transition-opacity duration-300' onClick={handleMenuToggle} ></div>
                     <div className='relative flex flex-col gap-4 items-center pt-20 p-8 max-w-[400px] w-full bg-white dark:bg-[#020617] h-[100%] min-h-[600px] shadow-xl'>
-                        <Link to="/category" className='rounded p-3 w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow-md transition-all' >Categories </Link>
-                        <Link to="/mentor" className='rounded p-3 w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow-md transition-all' >Teach on Byway </Link>
-                        {isAuthenticated ? (<AuthUserAccessHub />) : (<GuestUserAccessHub />)}
+                        <Link to="/category" className='rounded p-3 w-full font-bold dark:text-[#c19bff] text-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow-md transition-all' onClick={handleMenuToggle} >Categories </Link>
+                        <Link to="/mentor" className='rounded p-3 w-full font-bold dark:text-[#c19bff] text-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow-md transition-all' onClick={handleMenuToggle} >Teach on Byway </Link>
+                        <div onClick={handleMenuToggle} className='w-full'>
+                            {isAuthenticated ? (<AuthUserAccessHub />) : (<GuestUserAccessHub />)}
+                        </div>
                         <button onClick={toggleTheme} className="p-2 w-20 h-10 rounded-full relative flex items-center transition-all duration-300 ease-in-out border border-gray-200 dark:border-gray-700" >
                             <div className="absolute w-8 h-8 rounded-full flex items-center justify-center transform transition-transform duration-300 ease-in-out shadow-md" style={{ backgroundColor: isDarkMode ? '#334155' : 'white', transform: isDarkMode ? 'translateX(32px)' : 'translateX(-5px)' }} >
                                 {isDarkMode ? (
