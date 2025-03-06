@@ -98,16 +98,16 @@ export const Button = (btn) =>{
     )
 }
 
-// Reusable input component
-export const Input = (input) => {
-    return (
-        <input
-            className={`block w-full px-6 py-[16px] border border-[#797b7e] dark:border-[#c19bff] rounded-md text-sm transition-all duration-300 ${input.error ? 'border-red-500' : ''}`}
-            id={input.id}
-            type={input.type}
-            placeholder={input.placeholder}
-            value={input.value}
-            onChange={input.onChange}
-        />
-    )
-}
+// // Reusable input component
+// export const Input = (input) => {
+//     return (
+//         <input
+//             className={`block  ${input.error ? 'border-red-500' : ''}`}
+//             id={input.id}
+//             type={input.type}
+//             placeholder={input.placeholder}
+//             value={()=>input.value}
+//             onChange={input.onChange}
+//         />
+//     )
+// }
