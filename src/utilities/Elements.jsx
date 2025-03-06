@@ -111,3 +111,32 @@ export const Button = (btn) =>{
 //         />
 //     )
 // }
+
+export const Top_Link = (Top) => {
+    return (
+        <div className="flex justify-between mb-5 items-center">
+            <h2 className="text-[24px] font-[600] text-[#334155] dark:text-white">{Top.name}</h2>
+            <Button
+                BtnText={
+                    <Link to="#" className="text-[14px] text-[#3B82F6] dark:text-[#109191] hover:text-[#109191] dark:hover:text-[#3B82F6]">
+                        See all
+                    </Link>
+                }
+                BtnStyle={"w-[94px] h-[48px] rounded-md bg-white dark:bg-[#020617]"}
+            />
+        </div>
+    )
+}
+
+export const Top_Contents = (Content) => {
+    return (
+        <div className="border-[1px] border-[#E2E8F0] dark:border-[#867CB8] p-5 flex flex-col gap-4 rounded-md justify-center items-center min-h-[224px] w-full m-auto lg:max-w-[315px] cursor-pointer hover:bg-[#DBF4FA] dark:hover:bg-[#3b2676] hover:scale-105 duration-300 bg-white dark:bg-[#111827]">
+            <img src={Content.img} alt={Content.title} className={`${Content.imgStyle}`} />
+            <h3 className={`${Content.titleStyle} font-[600] text-[#334155] dark:text-white`}>{Content.title}</h3>
+            <p className={`${Content.paraStyle} text-[#334155] dark:text-[#bcc3cf]`}>
+                {Content.paragraph}
+            </p>
+            {Content.description}
+        </div>
+    );
+};
