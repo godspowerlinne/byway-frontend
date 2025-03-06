@@ -79,7 +79,7 @@ const Signup = () => {
     }
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-[45%,55%] pt-16 max-w-screen-2xl mx-auto items-center lg:pr-16 bg-white dark:bg-[#020617]/90'>
+        <div className='grid grid-cols-1 md:grid-cols-[45%,55%] pt-10 sm:pt-16  max-w-screen-2xl mx-auto items-center lg:pr-16 bg-white dark:bg-[#020617]/90'>
             <div className='h-screen lg:h-auto min-h-[700px]'>
                 <img src={signupImg} alt="Signup illustration" className="w-full h-full object-cover" />
             </div>

@@ -16,8 +16,8 @@ export const SearchBar = () => {
 export const SearchBar2 = () => {
     const [isFocus, setIsFucus] = useState(false);
     return (
-        <div className={`flex bg-white dark:bg-[#2c3131] items-center max-w-[600px] min-h-[40px] w-full lg:hidden justify-between relative rounded-lg border border-[#797b7e] dark:border-[#c19bff] overflow-hidden ${isFocus ? ' transform -translate-y-40' : ''}`}>
-            <input className='w-full pr-14 px-6 py-3 text-sm placeholder:text-[#334155] dark:placeholder:text-white dark:text-white font-[500] focus:outline-none bg-transparent' type='text' placeholder='Search for courses...' onFocus={() => setIsFucus(true)} onBlur={() => setIsFucus(false)} />
+        <div className={`flex bg-white dark:bg-[#2c3131] items-center max-w-[600px] min-h-[40px] w-full lg:hidden justify-between relative rounded-lg border border-[#797b7e] dark:border-[#c19bff] overflow-hidden `}>
+            <input className='w-full pr-14 px-6 py-3 text-sm placeholder:text-[#334155] dark:placeholder:text-white dark:text-white font-[500] focus:outline-none bg-transparent' type='text' placeholder='Search for courses...'/>
             <Search className="absolute right-4 top-0 translate-y-[45%] text-gray-600 dark:text-[#c19bff] cursor-pointer transition-all duration-300 hover:translate-y-[40%] hover:scale-105" />
         </div>
     )
