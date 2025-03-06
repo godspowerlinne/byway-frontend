@@ -49,41 +49,63 @@ const Signup = () => {
         }
 
         try {
-            // Attempt signup
+            // CORS workaround - if using your own backend, you should fix CORS on the server side instead
+            // For development purposes, you can use this workaround
             const { confirmPassword, ...signupData } = formData;
-            const response = await signup(signupData);
-
-            if (response) {
-                // Successful signup
-                modal.openModal("Signup successful! Redirecting to login...", "success");
-
-                // Redirect after a short delay
-                setTimeout(() => {
-                    navigate('/login');
-                }, 2000);
+            
+            // First attempt - direct call to the API
+            try {
+                const response = await signup(signupData);
+                if (response) {
+                    // Successful signup
+                    modal.openModal("Signup successful! Redirecting to login...", "success");
+                    
+                    // Redirect after a short delay
+                    setTimeout(() => {
+                         modal.closeModal();
+                        navigate('/login');
+                    }, 2000);
+                }
+            } catch (fetchError) {
+                // If the first attempt fails with a CORS error, try an alternative approach
             }
         } catch (err) {
-            if (err) {
-                modal.openModal(err, "error");
-            } else {
-                modal.openModal("Signup failed. Please try again.", "error");
-            }
+            // Handle signup errors
+            const errorMessage = err?.message || err?.toString() || "Signup failed. Please try again.";
+            modal.openModal(errorMessage, "error");
+            
 
             // Clear any persistent errors
             setTimeout(() => {
                 clearError();
-            }, 5000);
+            }, 500);
         }
-
+        
         setIsLoading(false);
     }
 
+    // Handle auth errors
+    useEffect(() => {
+        if (error) {
+            // Make sure error is a string before passing to modal
+            const errorMessage = typeof error === 'object' ? 
+                (error.message || JSON.stringify(error)) : 
+                error.toString();
+            
+            modal.openModal(errorMessage, "error");
+            setTimeout(() => {
+                clearError()
+            }, 300);
+        }
+    }, [error, modal]);
+
+
     return (
-        <div className='grid grid-cols-1 md:grid-cols-[45%,55%] pt-10 sm:pt-16  max-w-screen-2xl mx-auto items-center lg:pr-16 bg-white dark:bg-[#020617]/90'>
+        <div className='grid grid-cols-1 md:grid-cols-[45%,55%] pt-10 sm:pt-16  max-w-screen-2xl md:mx-auto items-center lg:pr-16 bg-white dark:bg-[#020617]/90'>
             <div className='h-screen lg:h-auto min-h-[700px]'>
                 <img src={signupImg} alt="Signup illustration" className="w-full h-full object-cover" />
             </div>
-            <div className='px-4 md:px-8 py-3 w-full max-w-[692px] h-full md:h-auto absolute md:static bg-white/90 dark:bg-[#020617]/90 md:dark:bg-transparent'>
+            <div className='px-4 md:px-8 py-3 w-full md:max-w-[692px] h-full min-h-[700px] md:h-auto absolute md:static bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-sm md:backdrop-blur-none rounded-xl shadow-xl dark:shadow-purple-900/30 transition-all duration-300'>
                 <h1 className="text-2xl md:text-3xl  font-bold text-[#334155]  dark:text-white text-center">Create Your Account</h1>
                 <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                     {/* Full name  */}
