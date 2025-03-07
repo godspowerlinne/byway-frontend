@@ -30,74 +30,85 @@ const Signup = () => {
         });
     }
 
+    const validateForm = (formData) => {
+        const errors = [];
+
+        // First Name validation
+        if (!formData.firstname) {
+            errors.push('First name is required');
+        } else if (formData.firstname.length < 2 || formData.firstname.length > 30) {
+            errors.push('First name must be between 2 and 30 characters');
+        }
+
+        // Last Name validation
+        if (!formData.lastname) {
+            errors.push('Last name is required');
+        } else if (formData.lastname.length < 2 || formData.lastname.length > 30) {
+            errors.push('Last name must be between 2 and 30 characters');
+        }
+
+        // Username validation
+        if (!formData.username) {
+            errors.push('Username is required');
+        } else if (formData.username.length < 3 || formData.username.length > 30) {
+            errors.push('Username must be between 3 and 30 characters');
+        } else if (!/^[a-zA-Z0-9]+$/.test(formData.username)) {
+            errors.push('Username must be alphanumeric');
+        }
+
+        // Email validation
+        if (!formData.email) {
+            errors.push('Email is required');
+        } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+            errors.push('Invalid email address');
+        }
+
+        // Password validation
+        if (!formData.password) {
+            errors.push('Password is required');
+        } else if (formData.password.length < 8) {
+            errors.push('Password must be at least 8 characters');
+        }
+
+        // Confirm Password validation
+        if (!formData.confirmPassword) {
+            errors.push('Please confirm your password');
+        } else if (formData.password !== formData.confirmPassword) {
+            errors.push('Passwords do not match');
+        }
+
+        return errors;
+    };
+
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
 
         // Validate inputs
-        if (!formData.firstname || !formData.lastname || !formData.username || !formData.email || !formData.password || !formData.confirmPassword) {
-            modal.openModal('Please fill in all fields', 'error');
-            setIsLoading(false);
+        const validationErrors = validateForm(formData);
+
+        if (validationErrors.length > 0) {
+            modal.openModal(validationErrors.join('\n'), 'error'); // Show all errors
+            setIsLoading(false); // Stop loading
             return;
         }
-
-        if (formData.password !== formData.confirmPassword) {
-            modal.openModal('Passwords do not match', 'error');
-            setIsLoading(false);
-            return;
-        }
-
+        // try catch
         try {
-            // CORS workaround - if using your own backend, you should fix CORS on the server side instead
-            // For development purposes, you can use this workaround
+            // remove confirmPassword before sending the formdata payload to the api
             const { confirmPassword, ...signupData } = formData;
-            
-            // First attempt - direct call to the API
-            try {
-                const response = await signup(signupData);
-                if (response) {
-                    // Successful signup
-                    modal.openModal("Signup successful! Redirecting to login...", "success");
-                    
-                    // Redirect after a short delay
-                    setTimeout(() => {
-                         modal.closeModal();
-                        navigate('/login');
-                    }, 2000);
-                }
-            } catch (fetchError) {
-                // If the first attempt fails with a CORS error, try an alternative approach
+            const response = await signup(signupData);
+
+            // catch response
+            if (response.success) {
+                navigate("/login");
             }
-        } catch (err) {
-            // Handle signup errors
-            const errorMessage = err?.message || err?.toString() || "Signup failed. Please try again.";
-            modal.openModal(errorMessage, "error");
-            
-
-            // Clear any persistent errors
-            setTimeout(() => {
-                clearError();
-            }, 500);
+        } catch (error) {
+            console.log("Signup Error", error.message);
+            modal.openModal(error.message, "error")
+            setIsLoading(false);
         }
-        
-        setIsLoading(false);
-    }
-
-    // Handle auth errors
-    useEffect(() => {
-        if (error) {
-            // Make sure error is a string before passing to modal
-            const errorMessage = typeof error === 'object' ? 
-                (error.message || JSON.stringify(error)) : 
-                error.toString();
-            
-            modal.openModal(errorMessage, "error");
-            setTimeout(() => {
-                clearError()
-            }, 300);
-        }
-    }, [error, modal]);
+    };
 
 
     return (
@@ -119,7 +130,7 @@ const Signup = () => {
                                 name="firstname"
                                 placeholder="First Name"
                                 value={formData.firstname}
-                                className="w-full focus:outline-none px-6 py-[16px] border border-[#797b7e] dark:border-[#522798] dark:bg-black/50 bg-white/50 dark:text-white text-black rounded-md text-sm transition-all duration-300"
+                                className={`w-full focus:outline-none px-6 py-[16px] border ${error ? 'border-red-500' : 'border-[#797b7e]'} ${error ? 'dark:border-red-500' : 'dark:border-[#522798]'} dark:bg-black/50 bg-white/50 dark:text-white text-black rounded-md text-sm transition-all duration-300`}
                                 required
                             />
                             <input
@@ -129,7 +140,7 @@ const Signup = () => {
                                 name="lastname"
                                 placeholder="Last Name"
                                 value={formData.lastname}
-                                className="w-full focus:outline-none px-6 py-[16px] border border-[#797b7e] dark:border-[#522798] rounded-md text-sm dark:bg-black/50 bg-white/50 text-black dark:text-white transition-all duration-300"
+                                className={`w-full focus:outline-none px-6 py-[16px] border ${error ? 'border-red-500' : 'border-[#797b7e]'} ${error ? 'dark:border-red-500' : 'dark:border-[#522798]'} dark:bg-black/50 bg-white/50 dark:text-white text-black rounded-md text-sm transition-all duration-300`}
                                 required
                             />
                         </div>
@@ -144,7 +155,7 @@ const Signup = () => {
                             name="username"
                             placeholder="Username"
                             value={formData.username}
-                            className="w-full dark:bg-black/50 bg-white/50 focus:outline-none px-6 py-[16px] border border-[#797b7e] dark:border-[#522798] rounded-md text-sm  dark:text-white text-black  transition-all duration-300"
+                            className={`w-full focus:outline-none px-6 py-[16px] border ${error ? 'border-red-500' : 'border-[#797b7e]'} ${error ? 'dark:border-red-500' : 'dark:border-[#522798]'} dark:bg-black/50 bg-white/50 dark:text-white text-black rounded-md text-sm transition-all duration-300`}
                             required
                         />
                     </div>
@@ -158,7 +169,7 @@ const Signup = () => {
                             name="email"
                             placeholder="Email ID"
                             value={formData.email}
-                            className="w-full focus:outline-none px-6 py-[16px] border border-[#797b7e] dark:border-[#522798] rounded-md text-sm dark:bg-black/50 bg-white/50 dark:text-white text-black  transition-all duration-300"
+                            className={`w-full focus:outline-none px-6 py-[16px] border ${error ? 'border-red-500' : 'border-[#797b7e]'} ${error ? 'dark:border-red-500' : 'dark:border-[#522798]'} dark:bg-black/50 bg-white/50 dark:text-white text-black rounded-md text-sm transition-all duration-300`}
                             required
                         />
                     </div>
@@ -173,7 +184,7 @@ const Signup = () => {
                                 name="password"
                                 placeholder="Enter your password"
                                 value={formData.password}
-                                className="w-full focus:outline-none px-6 py-[16px] border border-[#797b7e] dark:border-[#522798] rounded-md text-sm dark:bg-black/50 bg-white/50 dark:text-white text-black  transition-all duration-300"
+                                className={`w-full focus:outline-none px-6 py-[16px] border ${error ? 'border-red-500' : 'border-[#797b7e]'} ${error ? 'dark:border-red-500' : 'dark:border-[#522798]'} dark:bg-black/50 bg-white/50 dark:text-white text-black rounded-md text-sm transition-all duration-300`}
                                 required
                             />
                         </div>
@@ -187,7 +198,7 @@ const Signup = () => {
                                 name="confirmPassword"
                                 placeholder="Confirm password"
                                 value={formData.confirmPassword}
-                                className="w-full focus:outline-none px-6 py-[16px] border border-[#797b7e] dark:border-[#522798] rounded-md text-sm dark:bg-black/50 bg-white/50 dark:text-white text-black  transition-all duration-300"
+                                className={`w-full focus:outline-none px-6 py-[16px] border ${error ? 'border-red-500' : 'border-[#797b7e]'} ${error ? 'dark:border-red-500' : 'dark:border-[#522798]'} dark:bg-black/50 bg-white/50 dark:text-white text-black rounded-md text-sm transition-all duration-300`}
                                 required
                             />
                         </div>
