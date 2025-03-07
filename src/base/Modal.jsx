@@ -80,7 +80,7 @@ export const ModalComponent = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-[2px] transition-opacity duration-300 ease-in-out" onClick={closeModal}>
             {/* Modal card */}
             <div 
-                className={`relative w-full max-w-md ${getColorScheme()} rounded-lg shadow-lg p-6 m-auto transform transition-transform duration-300 ease-in-out border`}
+                className={`relative w-full max-w-xs ${getColorScheme()} rounded-lg shadow-lg p-6 m-auto transform transition-transform duration-300 ease-in-out border`}
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Close button */}

@@ -5,6 +5,7 @@ import { AuthUserAccessHub, GuestUserAccessHub, SearchBar, SearchBar2 } from '..
 import { useTheme } from '../base/Theme'
 import { useAuth } from '../base/Auth';
 import Byway from '/byway.svg'
+import '../App.css'
 
 const Navbar = () => {
     // Use Theme Context 
@@ -30,7 +31,7 @@ const Navbar = () => {
         <header className='min-h-16 bg-white dark:bg-[#020617] text-[#334155] fixed  dark:text-white w-full z-[1000] border-b border-b-blue-600/30'>
             <nav className='max-w-screen-2xl w-full mx-auto flex items-center justify-between px-4 md:px-8 xl:px-14 py-3 font-[500]'>
                 {/* Logo */}
-                <Link to="/" className='flex items-center gap-2 z-[100]'>
+                <Link to="/" className='flex items-center gap-2 z-[100]' onClick={handleMenuToggle}>
                     <img className='h-10 w-auto object-cover' src={Byway} alt='Logo' />
                     <span className='text-[16px] dark:text-white'>Byway</span>
                 </Link>
@@ -53,8 +54,8 @@ const Navbar = () => {
             </nav>
             {/* Mobile nav */}
             {isMenuOpen && (
-                <div className='fixed inset-0 z-50 lg:hidden'>
-                    <div className='absolute inset-0 bg-black/30 dark:bg-[#c19bff]/30 backdrop-blur-[2px] transition-opacity duration-300' onClick={handleMenuToggle} ></div>
+                <div className='fixed inset-0 z-50 lg:hidden slideIn'>
+                    <div className='absolute inset-0 bg-black/30 backdrop-blur-[2px] transition-opacity duration-300' onClick={handleMenuToggle} ></div>
                     <div className='relative flex flex-col gap-4 items-center pt-20 p-8 max-w-[400px] w-full bg-white dark:bg-[#020617] h-[100%] min-h-[600px] shadow-xl'>
                         <Link to="/category" className='rounded p-3 w-full font-bold dark:text-[#c19bff] text-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow-md transition-all' onClick={handleMenuToggle} >Categories </Link>
                         <Link to="/mentor" className='rounded p-3 w-full font-bold dark:text-[#c19bff] text-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow-md transition-all' onClick={handleMenuToggle} >Teach on Byway </Link>

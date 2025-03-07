@@ -140,3 +140,13 @@ export const Top_Contents = (Content) => {
         </div>
     );
 };
+
+// Social login 
+export const Social = (social) =>{
+    return(
+        <button className="min-w-[220px] w-full min-h-[50px] flex items-center justify-center gap-2 border border-[#B2B5C4] dark:border-[#867CB8]  rounded bg-white dark:bg-black">
+            {social.icon}
+            <span className={`${social.textStyle} text-[14px]`}>{social.name}</span>
+        </button>
+    )
+}
