@@ -130,7 +130,7 @@ export const Top_Link = (Top) => {
 
 export const Top_Contents = (Content) => {
     return (
-        <div className="border-[1px] border-[#E2E8F0] dark:border-[#867CB8] p-5 flex flex-col gap-4 rounded-md justify-center items-center min-h-[224px] w-full m-auto lg:max-w-[315px] cursor-pointer hover:bg-[#DBF4FA] dark:hover:bg-[#3b2676] hover:scale-105 duration-300 bg-white dark:bg-[#111827]">
+        <div className="border-[1px] border-[#E2E8F0] dark:border-[#867CB8] p-5 flex flex-col gap-4 rounded-md justify-center items-center min-h-[140px] w-full m-auto lg:max-w-[315px] cursor-pointer hover:bg-[#DBF4FA] dark:hover:bg-[#3b2676] hover:scale-105 duration-300 bg-white dark:bg-[#111827]">
             <img src={Content.img} alt={Content.title} className={`${Content.imgStyle}`} />
             <h3 className={`${Content.titleStyle} font-[600] text-[#334155] dark:text-white`}>{Content.title}</h3>
             <p className={`${Content.paraStyle} text-[#334155] dark:text-[#bcc3cf]`}>
