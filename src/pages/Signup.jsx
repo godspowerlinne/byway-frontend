@@ -116,7 +116,7 @@ const Signup = () => {
             <div className='h-screen lg:h-auto min-h-[700px]'>
                 <img src={signupImg} alt="Signup illustration" className="w-full h-full object-cover" />
             </div>
-            <div className='px-4 md:px-8 py-3 w-full md:max-w-[692px] h-full min-h-[700px] md:h-auto absolute md:static bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-sm md:backdrop-blur-none rounded-xl shadow-xl dark:shadow-purple-900/30 transition-all duration-300'>
+            <div className='px-4 md:px-8 py-3 w-full md:max-w-[692px] h-full min-h-[750px] md:h-auto absolute md:static bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-sm md:backdrop-blur-none shadow-xl dark:shadow-purple-900/30 transition-all duration-300'>
                 <h1 className="text-2xl md:text-3xl  font-bold text-[#334155]  dark:text-white text-center">Create Your Account</h1>
                 <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                     {/* Full name  */}
