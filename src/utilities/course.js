@@ -1,5 +1,11 @@
+import imgSrc from '../assets/topcourse.webp'
+import imgSrc2 from '../assets/secondcourse.webp'
+import imgSrc3 from '../assets/thirdcourse.webp'
+import imgSrc4 from '../assets/fourthcourse.webp'
+
 export const course = [
     {
+        image: imgSrc,
         title: "Beginner's Guide To Design",
         author: "Ronald Richards",
         rating: 4,
@@ -8,6 +14,7 @@ export const course = [
         price: 22.99,
     },
     {
+        image: imgSrc2,
         title: "UX Design Fundamentals",
         author: "Jane Doe",
         rating: 5,
@@ -16,6 +23,7 @@ export const course = [
         price: 19.99,
     },
     {
+        image: imgSrc3,
         title: "Frontend Web Development",
         author: "John Smith",
         rating: 4.5,
@@ -24,6 +32,7 @@ export const course = [
         price: 29.99,
     },
     {
+        image: imgSrc4,
         title: "Data Science & Machine Learning",
         author: "Alice Johnson",
         rating: 4.8,
@@ -32,6 +41,7 @@ export const course = [
         price: 49.99,
     },
     {
+        image: imgSrc,
         title: "Full-Stack JavaScript Bootcamp",
         author: "Michael Brown",
         rating: 4.7,
@@ -40,6 +50,7 @@ export const course = [
         price: 39.99,
     },
     {
+        image: imgSrc2,
         title: "Digital Marketing Essentials",
         author: "Sophia Wilson",
         rating: 4.3,
@@ -48,6 +59,7 @@ export const course = [
         price: 24.99,
     },
     {
+        image: imgSrc3,
         title: "Cybersecurity for Beginners",
         author: "David Martinez",
         rating: 4.6,
@@ -56,6 +68,7 @@ export const course = [
         price: 27.99,
     },
     {
+        image: imgSrc4,
         title: "Product Management Masterclass",
         author: "Emily Carter",
         rating: 4.9,
@@ -64,6 +77,7 @@ export const course = [
         price: 59.99,
     },
     {
+        image: imgSrc,
         title: "AI & Deep Learning Mastery",
         author: "James Anderson",
         rating: 4.7,

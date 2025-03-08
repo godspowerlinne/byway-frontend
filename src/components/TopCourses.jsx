@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../utilities/Card'
+import { CourseCard } from '../utilities/Card'
 import { course } from '../utilities/course'
 import { Top_Link } from '../utilities/Elements'
 
@@ -10,7 +10,7 @@ const TopCourses = () => {
             {/* Show first 4 cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-5 mt-10">
                 {course.slice(0, 4).map((course, index) => (
-                    <Card key={index} {...course} />
+                    <CourseCard key={index} {...course} />
                 ))}
             </div>
         </div>
