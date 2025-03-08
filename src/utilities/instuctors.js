@@ -21,21 +21,21 @@ export const instructors  = [
         noOfStudents: 1950
     },
     {
-        image: imgSrc3,
-        name: "Sophia Hernandez",
-        title: "Data Scientist",
+        image: imgSrc5,
+        name: "Michael Lee",
+        title: "Web Developer",
         rating: 4.8,
         noOfStudents: 3200
     },
     {
         image: imgSrc4,
-        name: "Michael Lee",
-        title: "Web Developer",
+        name: "Sophia Hernandez",
+        title: "Data Scientist",
         rating: 4.6,
         noOfStudents: 2100
     },
     {
-        image: imgSrc5,
+        image: imgSrc3,
         name: "Aisha Patel",
         title: "Digital Marketer",
         rating: 4.7,

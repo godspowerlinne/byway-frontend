@@ -16,12 +16,14 @@ const HomeStatistics = (text) => {
 const Statistic = () => {
 
     return (
-        <div className="max-w-screen-2xl w-full mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 xl:px-14 font-[500] py-12 lg:py-0 gap-4 lg:h-[149px] bg-[#F8FAFC] dark:bg-[#111827] text-[#334155] dark:text-white">
-            <HomeStatistics content="250+" description="Expert-curated courses." />
-            <HomeStatistics content="1000+" description="Hours of learning content." />
-            <HomeStatistics content="15+" description="Fields of expertise." />
-            <HomeStatistics content="2400+" description="Successful learners." hidden={`hidden`} />
-        </div>
+        <section className="bg-[#F8FAFC] dark:bg-[#111827]">
+            <div className="max-w-screen-2xl w-full mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 xl:px-14 font-[500] py-12 lg:py-0 gap-4 lg:h-[149px] text-[#334155] dark:text-white">
+                <HomeStatistics content="250+" description="Expert-curated courses." />
+                <HomeStatistics content="1000+" description="Hours of learning content." />
+                <HomeStatistics content="15+" description="Fields of expertise." />
+                <HomeStatistics content="2400+" description="Successful learners." hidden={`hidden`} />
+            </div>
+        </section>
     );
 };
 

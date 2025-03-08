@@ -5,6 +5,7 @@ import TopCategories from '../components/TopCategories'
 import TopCourses from '../components/TopCourses'
 import PostList from '../components/PostList'
 import TopInstructors from '../components/TopInstructors'
+import Testimonials from '../components/Testimonials'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <TopCategories/>
       <TopCourses/>
       <TopInstructors/>
+      <Testimonials/>
       <PostList/>
     </div>
   )

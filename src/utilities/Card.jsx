@@ -1,7 +1,7 @@
 import React from "react";
 import { IoStar } from "react-icons/io5";
 import { IoStarOutline } from "react-icons/io5";
-
+import QuoteSvg from '../assets/quotes.svg'
 export const CourseCard = ({
     image,
     title,
@@ -51,9 +51,9 @@ export const InstructorCard = (
     }
 ) => {
     return (
-        <div className="border-[1px] border-[#E2E8F0] dark:border-[#867CB8]  rounded-xl p-3">
+        <div className="border-[1px] border-[#E2E8F0] dark:border-[#867CB8]  rounded-xl p-3 w-[200px] m-auto">
             {/* Image  */}
-            <img src={image} alt="card image" className="w-full object-cover h-[300px] rounded-xl" />
+            <img src={image} alt="card image" className="w-full object-cover h-[150px] rounded" />
             <div className="flex flex-col items-center justify-center my-6">
                 {/* Card details */}
                 <h3 className="text-[18px] font-bold capitalize">{name}</h3>
@@ -69,3 +69,20 @@ export const InstructorCard = (
         </div>
     )
 }
+
+
+export const TestimonialCard = ({ testimonialcard }) => {
+    return (
+        <div className="border border-gray-200 dark:border-purple-700 rounded-xl p-6 h-[290px] flex flex-col gap-4 hover:shadow-lg transition-shadow duration-300">
+            <img src={QuoteSvg} alt="quote" className="w-12 h-12 object-contain" />
+            <q className="text-sm text-gray-700 dark:text-white flex-grow">{testimonialcard.message}</q>
+            <div className="flex items-center gap-3 mt-4">
+                <img src={testimonialcard.image} alt={`${testimonialcard.name} profile`} className="w-16 h-16 object-cover rounded-full" />
+                <div>
+                    <h3 className="text-lg dark:text-white font-bold capitalize">{testimonialcard.name}</h3>
+                    <p className="text-xs text-gray-700 dark:text-gray-300">{testimonialcard.title}</p>
+                </div>
+            </div>
+        </div>
+    );
+};
