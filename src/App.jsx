@@ -25,15 +25,15 @@ import ShoppingCart from "./pages/ShoppingCart";
 import StudentProfile from "./pages/StudentProfile";
 import StudentLearning from "./pages/StudentLearning";
 
-
 // Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
+import { ProtectedRoutes } from "./secure/ProtectedRoute";
 
 const AppLayout = () => {
   const location = useLocation();
-  const AuthPage = location.pathname === "/login" || location.pathname === "/signup";
+  const AuthPage =
+    location.pathname === "/login" || location.pathname === "/signup";
   return (
     <div>
       <Navbar />
@@ -43,14 +43,70 @@ const AppLayout = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         {/* Authenticated User Routes  */}
-        <Route path="/category" element={<Category />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/course" element={<Course />} />
-        <Route path="/mentor" element={<Mentor />} />
-        <Route path="/order-complete" element={<OrderComplete />} />
-        <Route path="/shopping-cart" element={<ShoppingCart />} />
-        <Route path="/student-profile" element={<StudentProfile />} />
-        <Route path="/student-learning" element={<StudentLearning />} />
+        <Route
+          path="/category"
+          element={
+            <ProtectedRoutes>
+              <Category />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <ProtectedRoutes>
+              <Checkout />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/course"
+          element={
+            <ProtectedRoutes>
+              <Course />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/mentor"
+          element={
+            <ProtectedRoutes>
+              <Mentor />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/order-complete"
+          element={
+            <ProtectedRoutes>
+              <OrderComplete />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/shopping-cart"
+          element={
+            <ProtectedRoutes>
+              <ShoppingCart />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/student-profile"
+          element={
+            <ProtectedRoutes>
+              <StudentProfile />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/student-learning"
+          element={
+            <ProtectedRoutes>
+              <StudentLearning />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
       {!AuthPage && <Footer />}
     </div>
