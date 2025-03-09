@@ -51,7 +51,7 @@ export const InstructorCard = (
     }
 ) => {
     return (
-        <div className="border-[1px] border-[#E2E8F0] dark:border-[#867CB8]  rounded-xl p-3 w-[200px] m-auto">
+        <div className="border-[1px] border-[#E2E8F0] dark:border-[#867CB8]  rounded-xl p-3 w-full max-w-[250px] m-auto">
             {/* Image  */}
             <img src={image} alt="card image" className="w-full object-cover h-[150px] rounded" />
             <div className="flex flex-col items-center justify-center my-6">

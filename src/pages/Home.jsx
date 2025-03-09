@@ -6,6 +6,7 @@ import TopCourses from '../components/TopCourses'
 import PostList from '../components/PostList'
 import TopInstructors from '../components/TopInstructors'
 import Testimonials from '../components/Testimonials'
+import CTA from '../components/CTA'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <TopCourses/>
       <TopInstructors/>
       <Testimonials/>
+      <CTA/>
       <PostList/>
     </div>
   )

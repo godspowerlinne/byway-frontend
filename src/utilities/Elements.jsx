@@ -1,4 +1,4 @@
-import { BellDot, Heart, Search, ShoppingCart, User2 } from "lucide-react"
+import { ArrowRight, BellDot, Heart, Search, ShoppingCart, User2 } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -17,7 +17,7 @@ export const SearchBar2 = () => {
     const [isFocus, setIsFucus] = useState(false);
     return (
         <div className={`flex bg-white dark:bg-[#2c3131] items-center max-w-[600px] min-h-[40px] w-full lg:hidden justify-between relative rounded-lg border border-[#797b7e] dark:border-[#c19bff] overflow-hidden `}>
-            <input className='w-full pr-14 px-6 py-3 text-sm placeholder:text-[#334155] dark:placeholder:text-white dark:text-white font-[500] focus:outline-none bg-transparent' type='text' placeholder='Search for courses...'/>
+            <input className='w-full pr-14 px-6 py-3 text-sm placeholder:text-[#334155] dark:placeholder:text-white dark:text-white font-[500] focus:outline-none bg-transparent' type='text' placeholder='Search for courses...' />
             <Search className="absolute right-4 top-0 translate-y-[45%] text-gray-600 dark:text-[#c19bff] cursor-pointer transition-all duration-300 hover:translate-y-[40%] hover:scale-105" />
         </div>
     )
@@ -86,12 +86,12 @@ export const GuestUserAccessHub = () => {
             </Link>
         </div>
     )
-} 
+}
 
 
 // Reusuable button component
-export const Button = (btn) =>{
-    return(
+export const Button = (btn) => {
+    return (
         <button className={`${btn.BtnStyle} px-6 py-[10px] rounded-md text-sm font-medium transition-all duration-300`} onClick={btn.onClick}>
             {btn.BtnText}
         </button>
@@ -142,11 +142,27 @@ export const Top_Contents = (Content) => {
 };
 
 // Social login 
-export const Social = (social) =>{
-    return(
+export const Social = (social) => {
+    return (
         <button className="min-w-[220px] w-full min-h-[50px] flex items-center justify-center gap-2 border border-[#B2B5C4] dark:border-[#867CB8]  rounded bg-white dark:bg-black">
             {social.icon}
             <span className={`${social.textStyle} text-[14px]`}>{social.name}</span>
         </button>
+    )
+}
+
+export const CTA_Content = (CTA) => {
+    return (
+        <>
+            <img src={CTA.image} alt={CTA.title} className="w-full max-w-[400px]" />
+            <div className="flex flex-col gap-5 max-w-[550px]">
+                <h2 className="text-[20px] font-[600] text-black dark:text-white">{CTA.title}</h2>
+                <p className="text-base text-[#1D2939] dark:text-white">{CTA.paragraph}</p>
+                <button className="w-full lg:w-fit rounded-md p-2 sm:p-[14px] border border-[#522798] bg-[#000000] font-bold text-xs text-white dark:bg-[#522798] dark:hover:bg-[#7435d8] items-center justify-center transition-all flex gap-2 duration-300 group">
+                    {CTA.btnText}
+                    <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
+                </button>
+            </div>
+        </>
     )
 }
