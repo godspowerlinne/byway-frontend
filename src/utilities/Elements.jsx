@@ -144,7 +144,7 @@ export const Top_Contents = (Content) => {
 // Social login 
 export const Social = (social) => {
     return (
-        <button className="min-w-[220px] w-full min-h-[50px] flex items-center justify-center gap-2 border border-[#B2B5C4] dark:border-[#867CB8]  rounded bg-white dark:bg-black">
+        <button className=" w-full min-h-[50px] flex items-center justify-center gap-2 border border-[#B2B5C4] dark:border-[#867CB8]  rounded bg-white dark:bg-black hover:scale-95 transition-all duration-300">
             {social.icon}
             <span className={`${social.textStyle} text-[14px]`}>{social.name}</span>
         </button>
