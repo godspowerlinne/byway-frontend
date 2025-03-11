@@ -164,7 +164,7 @@ const Login = () => {
                         <Social name='Microsoft' icon={<Link to='#'><img src={MicrosoftIcon} /></Link>} textStyle='text-[#000000] dark:text-white ' />
                     </div>
                 </div>
-                <div className='h-[100%] min-h-[700px]  absolute md:static'>
+                <div className='h-[100%] min-h-[700px] -z-10 md:z-auto  absolute md:static'>
                     <img src={loginImg} alt="Login illustration" className="w-full h-full object-cover" />
                 </div>
             </div>
