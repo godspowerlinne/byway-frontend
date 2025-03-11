@@ -60,8 +60,8 @@ const Login = () => {
                 // Redirect after a short delay
                 setTimeout(() => {
                     modal.closeModal();
-                    navigate('/dashboard');
-                }, 2000);
+                    navigate('/category');
+                }, 500);
             }
         } catch (err) {
             // Handle login errors

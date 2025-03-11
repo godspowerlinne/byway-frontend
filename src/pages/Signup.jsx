@@ -110,7 +110,7 @@ const Signup = () => {
                 setTimeout(() => {
                     modal.closeModal();
                     navigate('/login');
-                }, 2000);
+                }, 500);
             }
         } catch (error) {
             console.log("Signup Error", error.message);
