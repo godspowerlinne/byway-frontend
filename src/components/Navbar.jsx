@@ -31,7 +31,7 @@ const Navbar = () => {
         <header className='min-h-16 bg-white dark:bg-[#020617] text-[#334155] fixed  dark:text-white w-full z-[1000] border-b border-b-blue-600/30'>
             <nav className='max-w-screen-2xl w-full mx-auto flex items-center justify-between px-4 md:px-8 xl:px-14 py-3 font-[500]'>
                 {/* Logo */}
-                <Link to="/" className='flex items-center gap-2 z-[100]' onClick={handleMenuToggle}>
+                <Link to="/" className='flex items-center gap-2 z-[100]' >
                     <img className='h-10 w-auto object-cover' src={Byway} alt='Logo' />
                     <span className='text-[16px] dark:text-white'>Byway</span>
                 </Link>
